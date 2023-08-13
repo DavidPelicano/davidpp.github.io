@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism Login Form | CodingNepal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <style>
+    /* Reset some default styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Background gradient */
+body {
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+}
+
+/* Center the login form */
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 5px;
+}
+
+#hero{
+  width: 100%;
+  height: 100vh;
+  background-image: url(static/bg3.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.navbar {
+    background-color: #333;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar a:hover {
+    background-color: #555;
+  }
+form input[type="name"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #1a73e8;
+  color: #fe0101;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background: #0d47a1;
+}
+
+/* Center the form error message */
+.form-error {
+  text-align: center;
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Optional: Add a title and center it */
+.title {
+  text-align: center;
+  color: #e20a0a;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.register {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+@media screen and (max-width: 860px) {
+            .navbar {
+                justify-content: space-between;
+                padding: 10px;
+            }
+
+            .navbar a {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+        }
+
+
+  </style>
+  
+  <div id="hero">
+      <div class="navbar">
+        <a href="/home.html" {% if request.endpoint == 'views.home' %}class="active"{% endif %}>Home</a>
+        <a href="/redes.html" {% if request.endpoint == 'views.about' %}class="active"{% endif %}>Social Networks</a>
+        <a href="/services.html" {% if request.endpoint == 'views.services' %}class="active"{% endif %}>Serviços</a>
+        <a href="/contacto.html" {% if request.endpoint == 'views.contact' %}class="active"{% endif %}>Contacto</a>
+        <a href="/login.html" {% if request.endpoint == 'views.login' %}class="active"{% endif %}>Login</a>
+    </div>
+
+      <form method="post">
+        <h1>Login</h1>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <input type="submit" value="Login">
+        <div class="register">
+          <p>Don't have an account? <a href="/register.html">Register</a></p>
+        </div>
+    </form>
+
+
+  </form>
+  </div>
+  
+</body>
+</html>

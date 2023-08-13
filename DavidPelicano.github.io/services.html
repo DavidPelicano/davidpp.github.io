@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="/templates/index.css">
+</head>
+<body>
+  <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Estilos para a barra de navegação */
+  .navbar {
+    background-color: #333;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar a:hover {
+    background-color: #555;
+  }
+
+  /* Estilos para o conteúdo da página */
+  .content {
+    padding: 20px;
+  }
+/* Estilos para o conteúdo da página */
+.content {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1,h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+
+  color: wheat;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+
+  color: wheat;
+}
+.t {
+  color: wheat;
+}
+
+/* Responsive CSS */
+@media screen and (max-width: 600px) {
+  h1 {
+      font-size: 30px;
+  }
+
+  p {
+      font-size: 16px;
+  }
+}
+
+/* Estilizar o link ativo na navbar */
+.navbar a.active {
+    background-color: #091df2;
+    color: white;
+    /* Outros estilos, como alterar o texto, adicionar bordas, etc. */
+}
+#hero{
+  width: 100%;
+  height: 100vh;
+  background-image: url(/images/bg5.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+@media screen and (max-width: 860px) {
+            .navbar {
+                justify-content: space-between;
+                padding: 10px;
+            }
+
+            .navbar a {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+        }
+</style>
+<div id="hero">
+    <div class="navbar">
+        <a href="/home.html" {% if request.endpoint == 'views.home' %}class="active"{% endif %}>Home</a>
+        <a href="/redes.html" {% if request.endpoint == 'views.about' %}class="active"{% endif %}>Social Networks</a>
+        <a href="/services.html" {% if request.endpoint == 'views.services' %}class="active"{% endif %}>Serviços</a>
+        <a href="/contacto.html" {% if request.endpoint == 'views.contact' %}class="active"{% endif %}>Contacto</a>
+        <a href="/login.html" {% if request.endpoint == 'views.login' %}class="active"{% endif %}>Login</a>
+    </div>
+
+  <p></p>
+  <p></p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+    
+
+
+      <div class="content">
+        <p>Services!</p> 
+    </div>
+    
+      <!-- Scripts JavaScript (opcional) -->
+      <script>
+        // Se desejar adicionar funcionalidades usando JavaScript
+      </script>
+</body>
+</html>
+
+
+
+
+

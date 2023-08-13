@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #333;
+}
+
+
+
+.navbar input#menu-toggler {
+  display: none;
+}
+
+.navbar #hamburger-btn {
+  cursor: pointer;
+  display: none;
+}
+
+.navbar .all-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .all-links li {
+  position: relative;
+  list-style: none;
+}
+
+.navbar .logo a {
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+}
+
+header a, footer a {
+  margin-left: 40px;
+  text-decoration: none;
+  color: #fff;
+  height: 100%;
+  padding: 20px 0;
+  display: inline-block;
+}
+
+header a:hover, footer a:hover {
+  color: #ddd;
+}
+
+.homepage {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background: url("/images/bg2.png");
+  background-position: center 65%;
+  background-size: cover;
+}
+
+.homepage::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.homepage .content {
+  display: flex;
+  height: 85%;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.homepage .content h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.homepage .content .text {
+  margin-bottom: 50px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.content a {
+  color: #000;
+  display: block;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 0 10px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  background: #fff;
+  border: 2px solid #fff;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+.content a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.3);
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 80px 0 0;
+}
+
+section h2 {
+  font-size: 2rem;
+}
+
+section > p {
+  text-align: center;
+}
+
+section .cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-top: 50px;
+  padding: 0 10px;
+  justify-content: space-between;
+}
+
+section.about {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.about .company-info {
+  margin-top: 30px;
+}
+
+.about h3 {
+  margin: 30px 0 10px;
+}
+
+.about .team {
+  text-align: left;
+  width: 100%;
+}
+
+.about .team ul {
+  padding-left: 20px;
+}
+
+section .cards .card {
+  background: #fff;
+  padding: 40px 15px;
+  list-style: none;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+  margin-bottom: 40px;
+  width: calc(100% / 3 - 30px);
+  text-align: center;
+}
+
+.portfolio .cards .card {
+  padding: 0 0 20px;
+}
+
+.services .card img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.portfolio .card img {
+  width: 100%;
+  padding-bottom: 10px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.cards .card p {
+  padding: 0 15px;
+  margin-top: 5px;
+}
+
+.about .row {
+  padding: 0 10px;
+}
+
+.contact .row {
+  margin: 60px 0 90px;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact .row .col {
+  padding: 0 10px;
+  width: calc(100% / 2 - 50px);
+}
+
+.contact .col p {
+  margin-bottom: 10px;
+}
+
+.contact .col p i {
+  color: #7a7a7a;
+  margin-right: 10px;
+}
+
+.contact form input {
+  height: 45px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid #bfbfbf;
+}
+
+.contact form textarea {
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  height: 150px;
+  outline: none;
+  resize: vertical;
+  border: 1px solid #bfbfbf;
+}
+
+.contact form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 17px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #333;
+  transition: 0.2s ease;
+}
+
+.contact form button:hover {
+  background: #525252;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #000;
+  padding: 20px 0;
+}
+
+footer div {
+  padding: 0 10px;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer span {
+  color: #fff;
+}
+
+footer a {
+  padding: 0;
+}
+
+@media screen and (max-width: 860px) {
+  .navbar .all-links {
+    position: fixed;
+    left: -100%;
+    width: 300px;
+    display: block;
+    height: 100vh;
+    top: 75px;
+    background: #333;
+    transition: left 0.3s ease;
+  }
+
+  .navbar #menu-toggler:checked~.all-links {
+    left: 0;
+  }
+
+  .navbar .all-links li {
+    font-size: 18px;
+  }
+
+  .navbar #hamburger-btn {
+    display: block;
+  }
+
+  section > p {
+    text-align: center;
+  }
+
+  section .cards .card {
+    width: calc(100% / 2 - 15px);
+    margin-bottom: 30px;
+  }
+
+  .homepage .content h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .homepage .content .text {
+    font-size: 17px;
+  }
+
+  .content a {
+    font-size: 17px;
+    padding: 9px 20px;
+  }
+
+  .contact .row {
+    flex-direction: column;
+  }
+
+  .contact .row .col {
+    width: 100%;
+  }
+
+  .contact .row .col:last-child {
+    margin-top: 40px;
+  }
+
+  footer a {
+    height: 0;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  section .cards .card {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+.navbar {
+    background-color: #333;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar a:hover {
+    background-color: #555;
+  }
+  /* Estilos para o link do botão */
+/* Estilos para o link do botão */
+.custom-button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #4CAF50; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto do botão */
+  padding: 12px 24px; /* Espaçamento interno (topo/baixo esquerda/direita) */
+  border-radius: 25px; /* Borda arredondada do botão */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra do botão */
+  border: none; /* Remover a borda padrão do botão */
+  font-size: 18px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  text-transform: uppercase; /* Transformar o texto em maiúsculas */
+  cursor: pointer; /* Altera o cursor ao passar por cima do botão */
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Efeitos de transição suave */
+}
+
+/* Estilos quando o botão está em hover (quando o mouse está sobre o botão) */
+.custom-button:hover {
+  background-color: #45a049; /* Cor de fundo alterada ao passar o mouse */
+  transform: scale(1.05); /* Efeito de escala no hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra maior no hover */
+}
+
+/* Estilos quando o botão está ativo (quando clicado) */
+.custom-button:active {
+  transform: scale(0.95); /* Efeito de escala no clique */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra menor no clique */
+}
+@media screen and (max-width: 860px) {
+            .navbar {
+                justify-content: space-between;
+                padding: 10px;
+            }
+
+            .navbar a {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+        }
+
+
+
+    </style>
+
+
+<div class="navbar">
+  <a href="/home.html" {% if request.endpoint == 'views.home' %}class="active"{% endif %}>Home</a>
+  <a href="/redes.html" {% if request.endpoint == 'views.about' %}class="active"{% endif %}>Social Networks</a>
+  <a href="/services.html" {% if request.endpoint == 'views.services' %}class="active"{% endif %}>Serviços</a>
+  <a href="/contacto.html" {% if request.endpoint == 'views.contact' %}class="active"{% endif %}>Contacto</a>
+  <a href="/login.html" {% if request.endpoint == 'views.login' %}class="active"{% endif %}>Login</a>
+</div>
+
+
+
+<section class="homepage" id="home">
+  <div class="content">
+    <div class="text">
+      <h1>DPP</h1>
+      <p>
+        Welcome to my <br> website</p>
+    </div>
+    <a href="#services">Our Services</a>
+  </div>
+</section>
+
+
+<section class="services" id="services">
+  <h2>Our Services</h2>
+  <p>Explore our services</p>
+  <ul class="cards">
+    <li class="card">
+      <img src="/images/rick.JPG" alt="img">
+      <h3>My first website online:</h3>
+      <a href="http://davidpelicano.github.io" class="custom-button" target="_blank"><button>Website</button></a>
+
+
+    </li>
+    <li class="card">
+      <img src="/images/bg2.png" alt="img">
+      <h3>My first API:</h3>
+      <a href="{{url_for('views.inicial')}}" class="custom-button" target="_blank"><button>Website</button></a>
+    </li>
+    <li class="card">
+      <img src="/images/d.JPG" alt="img">
+      <h3>My Biografhy</h3>
+      <a href="{{url_for('views.biografhy')}}" class="custom-button" target="_blank"><button>Biografhy</button></a>
+    </li>
+    <li class="card">
+      <img src="/images/bg3.png" alt="img">
+      <h3>Login to my website</h3>
+      <a href="{{url_for('views.login')}}" class="custom-button" target="_blank"><button>Login</button></a>
+    </li>
+    <li class="card">
+      <img src="/images/bg5.png" alt="img">
+      <h3>Register to my website</h3>
+      <a href="{{url_for('views.register')}}" class="custom-button" target="_blank"><button>Register</button></a>
+    </li>
+    <li class="card">
+      <img src="/images/redes.jpeg" alt="img">
+      <h3>Social Networks</h3>
+      <a href="redes.html" class="custom-button" target="_blank"><button>Networks</button></a>
+    </li>
+  </ul>
+</section>
+
+<section class="portfolio" id="portfolio">
+    <h2>Places I've Explored</h2>
+    <p>Take a glimpse into some of the amazing places I've had the opportunity to visit.</p>
+    <ul class="cards">
+      <li class="card">
+        <img src="/images/Estadio-Jose-Alvalade-Liga-Europa-Juventus.jpg" alt="img">
+        <h3>José Alvalade Stadium, Lisbon, Portugal</h3>
+        <p>Regarded as one of the finest stadiums worldwide, in case you weren't aware.</p>
+      </li>
+      <li class="card">
+        <img src="/images/united1.jpeg" alt="img">
+        <h3>Old Trafford</h3>
+        <p>Ranked as the second-best stadium globally, just in case you didn't know already.</p>
+        <p>(home to the best club in England)</p>
+      </li>
+      <li class="card">
+        <img src="/images/algarve.jpeg" alt="img">
+        <h3>Praia da Rocha, Portimão, Portugal</h3>
+        <p>Renowned as the ultimate beach destination in Portugal.</p>
+      </li>
+      <li class="card">
+        <img src="/images/acores.jpeg" alt="img">
+        <h3>São Miguel Island, Azores, Portugal</h3>
+        <p>An enchanting island boasting picturesque views and more.</p>
+      </li>
+      <li class="card">
+        <img src="/images/aquashow.jpeg" alt="img">
+        <h3>Aquashow Park, Algarve</h3>
+        <p>The finest aquatic park in the country.</p>
+      </li>
+      <li class="card">
+        <img src="/images/pedroabrunhosa2.jpeg" alt="img">
+        <h3>Altercation with Pedro Abrunhosa</h3>
+        <h4>(I was 14yo)</h4>
+        <p>The location where I almost got into a heated confrontation with the famous Portuguese singer.</p>
+      </li>
+    </ul>
+  </section>
+
+
+
+
+<footer>
+  <div>
+    <span>Copyright © 2023 All Rights Reserved</span>
+    <span class="link">
+        <a href="#">Home</a>
+        <a href="/contacto.html">Contact</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  const body = document.querySelector("body"),
+    toggle = document.querySelector(".toggle");
+
+  let getMode = localStorage.getItem("mode");
+  if (getMode && getMode === "dark") {
+    body.classList.add("dark");
+    toggle.classList.add("active");
+  }
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+
+    if (!body.classList.contains("dark")) {
+      return localStorage.setItem("mode", "light");
+    }
+    localStorage.setItem("mode", "dark");
+  });
+
+  toggle.addEventListener("click", () => toggle.classList.toggle("active"));
+</script>
+</body>
+</html>

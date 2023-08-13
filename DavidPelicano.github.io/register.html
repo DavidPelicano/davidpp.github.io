@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/templates/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-CZjx7Yeh9/J05dn8VzXIUH8/K5qcn6IsYwA33bm08xr1L9Qx4K71Lnr3tkdibjcjDsPmTXQcn1ZvYfdt6Ku2w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+    body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Background gradient */
+body {
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+}
+
+/* Center the login form */
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 5px;
+}
+
+#hero{
+  width: 100%;
+  height: 100vh;
+  background-image: url(static/bg3.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.navbar {
+    background-color: #333;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar a:hover {
+    background-color: #555;
+  }
+form input[type="name"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #1a73e8;
+  color: #fe0101;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background: #0d47a1;
+}
+
+/* Center the form error message */
+.form-error {
+  text-align: center;
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Optional: Add a title and center it */
+.title {
+  text-align: center;
+  color: #e20a0a;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.login {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+@media screen and (max-width: 860px) {
+            .navbar {
+                justify-content: space-between;
+                padding: 10px;
+            }
+
+            .navbar a {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+        }
+
+    </style>
+<div id="hero">
+    <div class="navbar">
+        <a href="/home.html" {% if request.endpoint == 'views.home' %}class="active"{% endif %}>Home</a>
+        <a href="/redes.html" {% if request.endpoint == 'views.about' %}class="active"{% endif %}>Social Networks</a>
+        <a href="/services.html" {% if request.endpoint == 'views.services' %}class="active"{% endif %}>Serviços</a>
+        <a href="/contacto.html" {% if request.endpoint == 'views.contact' %}class="active"{% endif %}>Contacto</a>
+        <a href="/login.html" {% if request.endpoint == 'views.login' %}class="active"{% endif %}>Login</a>
+    </div>
+  
+
+
+  <form method="post">
+    <h1>Registro</h1>
+    <label for="name">Nome:</label>
+    <input type="name" name="name" required><br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" required><br>
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password" required><br>
+    <label for="confirm_password">Repita a senha:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required><br>
+    <input type="submit" value="Registrar" onclick="return validateForm();">
+    <div class="login">
+      <p>Already have an account? <a href="/login.html">Login</a></p>
+    </div>
+</form>
+
+    
+    
+
+    
+
+    </form>
+
+
+  <p></p>
+  <p></p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+  <script>
+    // Function to validate the form before submission
+    function togglePasswordVisibility(shouldShow) {
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.querySelector('.toggle-password i');
+
+    if (shouldShow) {
+      passwordInput.type = 'text';
+      toggleIcon.classList.remove('fa-eye');
+      toggleIcon.classList.add('fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      toggleIcon.classList.remove('fa-eye-slash');
+      toggleIcon.classList.add('fa-eye');
+    }
+  }
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm_password").value;
+  
+      if (password !== confirmPassword) {
+        alert("Passwords do not match. Please try again.");
+        return false;
+      }
+  
+      if (password.length < 6) {
+        alert("Password should be at least 6 characters long.");
+        return false;
+      }
+  
+      return true;
+    }
+  
+    // Adding event listener to the form's submit event
+
+
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm_password").value;
+
+      if (password !== confirmPassword) {
+        alert("As senhas não coincidem. Por favor, tente novamente.");
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("A senha deve ter pelo menos 6 caracteres.");
+        return false;
+      }
+
+      return true;
+
+      async function validateForm() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirm_password").value;
+    var email = document.getElementById("email").value;
+
+    if (password !== confirmPassword) {
+      alert("As senhas não coincidem. Por favor, tente novamente.");
+      return false;
+    }
+
+    if (password.length < 6) {
+      alert("A senha deve ter pelo menos 6 caracteres.");
+      return false;
+    }
+
+    // Verificar se o email já está registrado no servidor usando AJAX
+    var response = await fetch(`/check_email?email=${encodeURIComponent(email)}`);
+    var data = await response.json();
+
+    if (data.exists) {
+      document.getElementById("email-error").textContent = "Este email já está registrado. Por favor, use um email diferente.";
+      alert("Este email já está registrado. Por favor, use um email diferente.");
+      return false;
+    } else {
+      document.getElementById("email-error").textContent = "";
+      return true;
+    }
+  }
+
+  // Adding event listener to the form's submit event
+  document.querySelector("form").addEventListener("submit", function(event) {
+    if (!validateForm()) {
+      event.preventDefault(); // Prevent form submission if validation fails
+    }
+  });
+}
+  </script>
+</body>
+</html>

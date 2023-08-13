@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Página de Acesso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            margin-top: 150px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        .navbar {
+    background-color: #333;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar a:hover {
+    background-color: #555;
+  }
+  @media screen and (max-width: 860px) {
+            .navbar {
+                justify-content: space-between;
+                padding: 10px;
+            }
+
+            .navbar a {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="/index.html" {% if request.endpoint == 'views.home' %}class="active"{% endif %}>Home</a>
+    <a href="/index.html" {% if request.endpoint == 'views.about' %}class="active"{% endif %}>Social Networks</a>
+    <a href="/index.html" {% if request.endpoint == 'views.services' %}class="active"{% endif %}>Serviços</a>
+    <a href="/index.html" {% if request.endpoint == 'views.contact' %}class="active"{% endif %}>Contacto</a>
+    <a href="/index.html" {% if request.endpoint == 'views.login' %}class="active"{% endif %}>Login</a>
+</div>
+    <div class="container">
+        <h1>Password to go for my website online:</h1>
+        <input type="password" id="senhaInput">
+        <button onclick="verificarSenha()">Acessar</button>
+    </div>
+
+    <script>
+        function verificarSenha() {
+            var senhaInserida = document.getElementById("senhaInput").value.toLowerCase();
+            
+            // Verifica se a senha inserida é igual a "123"
+            if (senhaInserida === "dpp" || senhaInserida === "DPP") {
+                window.location.href = "home.html"; // Redireciona para index.html
+            } else {
+                alert("Senha incorreta. Tente novamente.");
+            }
+        }
+    </script>
+</body>
+</html>
